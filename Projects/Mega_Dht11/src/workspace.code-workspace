@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "..\\..\\.."
+		},
+		{
+			"name": "lcd",
+			"path": "..\\..\\..\\..\\PlatformIO\\Projects\\lcd"
+		},
+		{
+			"name": "lcd2",
+			"path": "..\\..\\..\\..\\PlatformIO\\Projects\\lcd2"
+		}
+	],
+	"settings": {}
+}

@@ -1,6 +1,6 @@
 #include <Arduino.h>
 #include "DHT.h"
-#define DHTPIN 7          // Hier die Pin Nummer eintragen wo der Sensor angeschlossen ist
+#define DHTPIN 13          // Hier die Pin Nummer eintragen wo der Sensor angeschlossen ist
 #define DHTTYPE DHT11     // Hier wird definiert was für ein Sensor ausgelesen wird. In 
                           // unserem Beispiel möchten wir einen DHT11 auslesen, falls du 
                           // ein DHT22 hast einfach DHT22 eintragen
