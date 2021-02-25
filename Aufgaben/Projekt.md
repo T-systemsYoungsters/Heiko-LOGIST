@@ -6,3 +6,4 @@
 - Foto machen und uploaden zum Server
 - Servernachricht an Telegram
 
+?
