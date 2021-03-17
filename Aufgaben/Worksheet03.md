@@ -46,6 +46,16 @@ if x == "Happy" or "Glad":<br>
     print("That is good to hear!")<br>
 
 9. 
+x = 5<br>
+    y = x == 6<br>
+    z = x == 5<br>
+    print("x=", x)<br>
+    print("y=", y)<br>
+    print("z=", z)<br>
+    if y:<br>
+        print("Fizz")<br>
+    if z:<br>
+        print("Buzz")<br>
 
 10. True<br>
 False<br>
@@ -116,13 +126,13 @@ Name some things you need to code.
 
 Where is the error?
 
-a = int(input("Eine Zahl:"))
-if a >0:
-    print("positiv")
-if a==0:
-    print("Null")
-else:
-    print("Negativ")
+a = int(input("Eine Zahl:"))<br>
+if a >0:<br>
+    print("positiv")<br>
+if a==0:<br>
+    print("Null")<br>
+else:<br>
+    print("Negativ")<br>
 
 
 
