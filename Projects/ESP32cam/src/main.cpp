@@ -1,3 +1,4 @@
+#include "Arduino.h"
 #include "esp_camera.h"
 #include <WiFi.h>
 #include <esp_http_client.h>
@@ -11,6 +12,63 @@
 const char* ssid = "Galaxy A7148AE";
 const char* password = "cjof5060";
 TaskHandle_t TaskHandle_SLM;
+
+void capture_task(void* parameter){
+  camInit();
+
+  WiFi.begin(ssid, password);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("");
+  Serial.println("WiFi connected");
+
+
+  Serial.print("Camera Ready! Use 'http://");
+  Serial.print(WiFi.localIP());
+  Serial.println("' to connect");
+
+  camera_fb_t *fb = NULL;
+  esp_err_t res = ESP_OK;
+  fb = esp_camera_fb_get();
+  if(!fb){
+    Serial.println("Camera capture failed");
+    esp_camera_fb_return(fb);
+    ESP.restart();
+  }
+
+  if(fb->format != PIXFORMAT_JPEG){
+    Serial.println("Non-JPEG data not implemented");
+    ESP.restart();
+  }
+
+  esp_http_client_config_t config = {
+    .url = "http://192.168.1.124:8888/imageUpdate",
+  };
+
+  esp_http_client_handle_t client = esp_http_client_init(&config);
+  esp_http_client_set_post_field(client, (const char*)fb->buf, fb->len);
+  esp_http_client_set_method(client, HTTP_METHOD_POST);
+  esp_http_client_set_header(client, "Content-type", "image/jpeg");
+  esp_err_t err = esp_http_client_perform(client);
+  if(err == ESP_OK)
+    Serial.println("Frame Uploaded");
+  else
+    Serial.printf("Failed to upload frame, error %d\r\n", err);
+
+  esp_http_client_cleanup(client);
+  esp_camera_fb_return(fb);
+  WiFi.disconnect(true);
+  ESP.restart();
+}
+
+void slm_task(){
+  samples_queue = xQueueCreate(8, sizeof(sum_queue_t));
+  xTaskCreate(mic_i2s_reader_task, "MIC I2S Reader", I2S_TASK_STACK, NULL, I2S_TASK_PRI, &TaskHandle_SLM);
+}
+
 
 void setup() {
   Serial.begin(115200);
@@ -74,60 +132,5 @@ void camInit(){
   }
 }
 
-void capture_task(void* parameter){
-  camInit();
-
-  WiFi.begin(ssid, password);
-
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-    Serial.print(".");
-  }
-  Serial.println("");
-  Serial.println("WiFi connected");
-
-
-  Serial.print("Camera Ready! Use 'http://");
-  Serial.print(WiFi.localIP());
-  Serial.println("' to connect");
-
-  camera_fb_t *fb = NULL;
-  esp_err_t res = ESP_OK;
-  fb = esp_camera_fb_get();
-  if(!fb){
-    Serial.println("Camera capture failed");
-    esp_camera_fb_return(fb);
-    ESP.restart();
-  }
-
-  if(fb->format != PIXFORMAT_JPEG){
-    Serial.println("Non-JPEG data not implemented");
-    ESP.restart();
-  }
-
-  esp_http_client_config_t config = {
-    .url = "http://192.168.1.124:8888/imageUpdate",
-  };
-
-  esp_http_client_handle_t client = esp_http_client_init(&config);
-  esp_http_client_set_post_field(client, (const char*)fb->buf, fb->len);
-  esp_http_client_set_method(client, HTTP_METHOD_POST);
-  esp_http_client_set_header(client, "Content-type", "image/jpeg");
-  esp_err_t err = esp_http_client_perform(client);
-  if(err == ESP_OK)
-    Serial.println("Frame Uploaded");
-  else
-    Serial.printf("Failed to upload frame, error %d\r\n", err);
-
-  esp_http_client_cleanup(client);
-  esp_camera_fb_return(fb);
-  WiFi.disconnect(true);
-  ESP.restart();
-}
-
-void slm_task(){
-  samples_queue = xQueueCreate(8, sizeof(sum_queue_t));
-  xTaskCreate(mic_i2s_reader_task, "MIC I2S Reader", I2S_TASK_STACK, NULL, I2S_TASK_PRI, &TaskHandle_SLM);
-}
 
 void loop() {}
