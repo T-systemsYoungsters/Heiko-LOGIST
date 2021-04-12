@@ -16,4 +16,4 @@
 15. [50,100],[0,200],[200,200]
 16. brings the graphics to the screen
 17. quits the game
-18. 
+18. pygame.draw.circle(screen, (0,0,255), (150, 50), 15, 1)
