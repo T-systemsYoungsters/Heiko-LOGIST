@@ -1,5 +1,3 @@
-// Fehler für den ich keine Lösung finde:   [e][ssl_client.cpp:36] _handle_error(): [send_ssl_data():301]: (-80) unknown error code (0050
-//versuchte Lösung z.B. https://github.com/espressif/arduino-esp32/issues/2398
 #include <Arduino.h>
 #include <WiFiClientSecure.h> // Https client
 #include "UniversalTelegramBot.h"
@@ -26,6 +24,9 @@ uint8_t *fb_buffer; // erzeugt framebuffer vom typ uint8_t
 size_t fb_length;   // länger vom buffer
 int currentByte;    //erzeugt int
 
+int soundPin = 33;
+int sensorValue = 13;
+
 #define PWDN_GPIO_NUM 32
 #define RESET_GPIO_NUM -1
 #define XCLK_GPIO_NUM 0
@@ -47,7 +48,6 @@ int currentByte;    //erzeugt int
 void setup()
 {
   Serial.begin(115200);
-  client.setInsecure(); //akzeptiert invalide zertifikate
 
   camera_config_t config; // objekt für camera config
   config.ledc_channel = LEDC_CHANNEL_0;
@@ -117,6 +117,7 @@ void setup()
   Serial.println("WiFi connected");
   Serial.print("IP address: ");
   Serial.println(WiFi.localIP());
+  client.setInsecure(); //akzeptiert invalide zertifikate
 }
 
 bool isMoreDataAvailable() //ist mehr da oder nicht
@@ -145,23 +146,31 @@ void take_send_photo(String chat_id) // mache und sende foto
 
 void loop()
 {
-  delay(5000);
-  take_send_photo(chat_id);
+  //take_send_photo(chat_id);
+  sensorValue = analogRead(soundPin);
+  Serial.println(sensorValue);
+  if (sensorValue>300){
+    take_send_photo(chat_id);
+  }
+  delay(2500);
 
-  // if (millis() > Bot_lasttime + Bot_mtbs)  { //wenn bot_mtbs vergangen sind dann sende foto
-  //   int numNewMessages = bot.getUpdates(bot.last_message_received + 1); //schau ob neue nachricht da ist
+  //if (millis() > Bot_lasttime + Bot_mtbs)
+  //{                                                                     //wenn bot_mtbs vergangen sind dann sende foto
+  // int numNewMessages = bot.getUpdates(bot.last_message_received + 1); //schau ob neue nachricht da ist
 
-  //   while (numNewMessages) { //wenn neue nachricht
-  //     Serial.println("got response");
-  //     chat_id = bot.messages[0].chat_id; //get chat_id
+  // while (numNewMessages)
+  //{ //wenn neue nachricht
+  // Serial.println("got response");
+  //chat_id = bot.messages[0].chat_id; //get chat_id
 
-  //     for (int i = 0; i < numNewMessages; i++) { //für jede neue msg
-  //       //bot.sendMessage(bot.messages[i].chat_id, bot.messages[i].text, "");
-  //       take_send_photo(chat_id);
-  //     }
-  //     numNewMessages = bot.getUpdates(bot.last_message_received + 1);
-  //   }
+  //for (int i = 0; i < numNewMessages; i++)
+  //{ //für jede neue msg
+  //bot.sendMessage(bot.messages[i].chat_id, bot.messages[i].text, "");
+  //take_send_photo(chat_id);
+  //}
+  //numNewMessages = bot.getUpdates(bot.last_message_received + 1);
+  //}
 
-  //   Bot_lasttime = millis();
+  //Bot_lasttime = millis();
   // }
 }
