@@ -1,4 +1,3 @@
-
 import random
 Q="Q"
 E="E"
@@ -16,7 +15,7 @@ d=0
 Milestraveled=0
 thirst=0
 cameltiredness=0
-natives=-20
+natives=20
 drinksinthecanteen=4
 print("Welcome to Camel!")
 print("You have stolen a camel to make your way across the great Mobi desert.")
@@ -36,13 +35,13 @@ while done == False:
     a=input()
     if a==Q:
         done=True
-    elif a==E:
+    if a==E:
         print("Miles traveled:",Milestraveled,"\n","your thirst:",thirst,"\n","your camel tiredness is:",cameltiredness,"\n","natives are ",natives,"miles away","\n","drinks in the canteen:",drinksinthecanteen)
-    elif a==D:
+    if a==D:
         cameltiredness=0
         print("Camel is happy")
         b=(random.randint(7,14))
-        natives=natives+b
+        natives=natives-b
         print("the natives are",natives,"miles away")
     elif a==C:
         c=(random.randint(10,20))
@@ -55,10 +54,10 @@ while done == False:
         cameltiredness=cameltiredness+d
         print("the tiredness of your camel is",cameltiredness)
         e=(random.randint(7,14))
-        natives=natives+e-c
+        natives=natives-e+c
         print("the natives moved",e,"miles")
         print("the natives are",natives,"miles away")
-    elif a==B:
+    if a==B:
         f=(random.randint(5,12))
         print("you moved",f,"miles")
         Milestraveled=Milestraveled+f
@@ -68,10 +67,10 @@ while done == False:
         cameltiredness=cameltiredness+1
         print("your camel got more tired",cameltiredness)
         g=(random.randint(7,14))
-        natives=natives+g-f
+        natives=natives-g+f
         print("the natives moved",g,"miles")
         print("the natives are",natives,"miles away")
-    elif a==A:
+    if a==A:
         print("glug glug glug")
         if drinksinthecanteen>0:
             drinksinthecanteen=drinksinthecanteen-1
@@ -80,18 +79,18 @@ while done == False:
             print("OH NO! Your canteen is empty")
     if thirst>4:
         print("you are thirsty",thirst)
-    elif thirst>6:
+    if thirst>6:
         print("You died of thirst!")
         done=True
     if cameltiredness>5:
         print("the camel tiredness is above 5")
-    elif cameltiredness>8:
+    if cameltiredness>8:
         print("your camel died, that means you have to  walk, but it doesnt take long until they will get you")
         done=True
-    elif natives>-15:
+    if natives<15:
         print("faster the natives are close")
         print(natives)
-    elif natives ==0 or natives >0:
+    if natives ==0 or natives <0:
         print("they have you, hopefully they are merciful")
         done=True
     if Milestraveled > 200:
@@ -105,5 +104,6 @@ while done == False:
         print("You have refilled your canteen")
         print("You and your camel rested")
         print("your thirst is:",thirst,"\n","the tiredness is:",cameltiredness,"\n","your canteen is full:",drinksinthecanteen)
-
+    
+        
     
