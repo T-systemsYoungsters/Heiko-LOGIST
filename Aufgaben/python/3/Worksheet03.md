@@ -1,62 +1,79 @@
 # Chapter 03 Worksheet
-1. temperature = float(input("Temperature: "))
-
-2. a = int(input("Eine Zahl:"))<br>
-if a >0:<br>
-    print("positiv")<br>
-elif a==0:<br>
-    print("Null")<br>
-else:<br>
-    print("Negativ")<br>
-
-3. a=float(input("gib eine Zahl ein:")) <br>
-b=-10<br>
-c=10<br>
-if a > b and a < c :<br>
-    print("Success")<br>
-else:<br>
-    print("NO")<br>
-
-4. print("A. Dessert topping") <br>
-print("B. Desert topping") <br>
-user_input = input("A cherry is a: A or B? ") <br>
-if user_input.upper() == "A": <br>
-    print("Correct!")<br>
-else:<br>
-    print("Incorrect.")<br>
-
-5. x = 4 <br>
-if x >= 0:<br>
-    print("x is positive.")<br>
-else:<br>
-    print("x is not positive.")<br>
-
-6. x = int(input("Enter a number: "))<br>
-if x == 3:<br>
-    print("You entered 3")<br>
-
-7.  answer = str(input("What is the name of Dr. Bunsen Honeydew's assistant? ")) <br>
-if answer == "Beaker":<br>
-    print("Correct!")<br>
-else:<br>
-    print("Incorrect! It is Beaker.")<br>
-
-8. x = str(input("How are you today?"))<br>
-if x == "Happy" or "Glad":<br>
-    print("That is good to hear!")<br>
-
+1.
+```python
+temperature = float(input("Temperature: "))
+```
+2.
+```python
+a = int(input("Eine Zahl:"))
+if a >0:
+    print("positiv")
+elif a==0:
+    print("Null")
+else:
+    print("Negativ")
+```
+3. 
+```python
+a=float(input("gib eine Zahl ein:")) 
+b=-10
+c=10
+if a > b and a < c :
+    print("Success")
+else:
+    print("NO")
+```
+4. 
+```python
+print("A. Dessert topping") 
+print("B. Desert topping") 
+user_input = input("A cherry is a: A or B? ") 
+if user_input.upper() == "A": 
+    print("Correct!")
+else:
+    print("Incorrect.")
+```
+5.
+```python
+x = 4 
+if x >= 0:
+    print("x is positive.")
+else:
+    print("x is not positive.")
+```
+6.
+```python
+x = int(input("Enter a number: "))
+if x == 3:
+    print("You entered 3")
+```
+7. 
+```python
+answer = str(input("What is the name of Dr. Bunsen Honeydew's assistant? ")) 
+if answer == "Beaker":
+    print("Correct!")
+else:
+    print("Incorrect! It is Beaker.")
+```
+8.
+```python
+x = str(input("How are you today?"))
+if x == "Happy" or "Glad":
+    print("That is good to hear!")
+```
 9. 
-x = 5<br>
-    y = x == 6<br>
-    z = x == 5<br>
-    print("x=", x)<br>
-    print("y=", y)<br>
-    print("z=", z)<br>
-    if y:<br>
-        print("Fizz")<br>
-    if z:<br>
-        print("Buzz")<br>
-
+```python
+x = 5
+    y = x == 6
+    z = x == 5
+    print("x=", x)
+    print("y=", y)
+    print("z=", z)
+    if y:
+        print("Fizz")
+    if z:
+        print("Buzz")
+```
 10. True<br>
 False<br>
 True<br>
@@ -81,27 +98,28 @@ True<br>
 error (False)<br>
 
 12. 
-print("Welcome to Oregon Trail!") <br>
-A=("Banker")<br>
-B=("Carpenter")<br>
-C=("Farmer")<br>
+```python
+print("Welcome to Oregon Trail!") 
+A=("Banker")
+B=("Carpenter")
+C=("Farmer")
  
-print("A. Banker")<br>
-print("B. Carpenter")<br>
-print("C. Farmer")<br>
+print("A. Banker")
+print("B. Carpenter")
+print("C. Farmer")
 
-user_input = input("What is your occupation? ")<br>
+user_input = input("What is your occupation? ")
  
-if user_input == A:<br>
-    money = 100<br>
-elif user_input == B:<br>
-    money = 70<br>
-elif user_input == C:<br>
-    money = 50<br>
+if user_input == A:
+    money = 100
+elif user_input == B:
+    money = 70
+elif user_input == C:
+    money = 50
  
-print("Great! you will start the game with", money, "dollars.")<br>
+print("Great! you will start the game with", money, "dollars.")
 
-
+```
 # QUIZ
 
 What happens?<br>
@@ -125,16 +143,16 @@ Name some things you need to code.
 -
 
 Where is the error?
+```python
+a = int(input("Eine Zahl:"))
+if a >0:
+    print("positiv")
+if a==0:
+    print("Null")
+else:
+    print("Negativ")
 
-a = int(input("Eine Zahl:"))<br>
-if a >0:<br>
-    print("positiv")<br>
-if a==0:<br>
-    print("Null")<br>
-else:<br>
-    print("Negativ")<br>
-
-
+```
 
 
 
