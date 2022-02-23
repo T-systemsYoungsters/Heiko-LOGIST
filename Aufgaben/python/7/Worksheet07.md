@@ -1,10 +1,12 @@
 ## Worksheet07
 
-1. String a=hallo<br>
-integer a=3<br>
-float a=5.433<br>
-boolean a=true<br>
-
+1.
+```python
+String a=hallo
+integer a=3
+float a=5.433
+boolean a=true
+```
 2. 
 2, 101, out of range
 
@@ -60,15 +62,27 @@ The -1 spot is: . <br>
 3456789<br>
 
 14. 
-liste=[]<br>
-for i in range(5):<br>
-    a = input("gib eine ganze zahl ein:")<br>
-    a = int(a)<br>
-    liste.append(a)<br>
-    print(liste)<br>
+```python
+liste=[]
+for i in range(5):
+    a = input("gib eine ganze zahl ein:")
+    a = int(a)
+    liste.append(a)
+    print(liste)
+  ```
 
 15. 
+ ```python
+my_list=[4,7,4,68,24,8,12,2]
+print(my_list)
+list_total=0
 
+for i in range(len(my_list)):
+    list_total+=my_list[i]
+print(list_total)
+avg=0
+avg=list_total/len(my_list)
+print("The avarage is:",avg)
 
 
 
