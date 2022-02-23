@@ -21,7 +21,6 @@ print("Welcome to Camel!")
 print("You have stolen a camel to make your way across the great Mobi desert.")
 print("The natives want their camel back and are chasing you down! Survive your desert trek and outrun the natives.")
 done = False
-bool(done)
 
 while done == False:
     print("A. Drink from your canteen.")
