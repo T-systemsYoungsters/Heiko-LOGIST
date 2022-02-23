@@ -1,13 +1,4 @@
-"""
- Simple graphics demo
- 
- Sample Python/Pygame Programs
- Simpson College Computer Science
- http://programarcadegames.com/
- http://simpson.edu/computer-science/
- 
-"""
- 
+
 # Import a library of functions called 'pygame'
 import pygame
  
@@ -71,13 +62,6 @@ while not done:
     pygame.draw.ellipse(screen, BLACK, [20, 20, 250, 50], 2)
     
  
-    # Draw an arc as part of an ellipse.
-    # Use radians to determine what angle to draw.
-    #pygame.draw.arc(screen, YELLOW, [428, 330, 150, 100], 0, PI / 2)
-    #pygame.draw.arc(screen, YELLOW, [428, 330, 150, 100], PI / 2, PI)
-    #pygame.draw.arc(screen, YELLOW, [428, 330, 150, 100], PI, 3 * PI / 2)
-    #pygame.draw.arc(screen, YELLOW, [428, 330, 150, 100], 3 * PI / 2, 2 * PI)
-
     pygame.draw.circle(screen, YELLOW, [500, 330], 50)
  
     # This draws a triangle using the polygon command
