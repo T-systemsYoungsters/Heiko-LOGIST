@@ -18,9 +18,7 @@ PI = 3.141592653
 # Set the height and width of the screen
 size = (1000, 800)
 screen = pygame.display.set_mode(size)
- 
-pygame.display.set_caption("Professor Craven's Cool Game")
- 
+
 # Loop until the user clicks the close button.
 done = False
 clock = pygame.time.Clock()
@@ -47,10 +45,7 @@ while not done:
     pygame.draw.line(screen, RED, [530, 705], [530, 770], 5)
     pygame.draw.line(screen, RED, [500, 705], [500, 770], 5)
  
-    # Draw on the screen several lines from (0,10) to (100,110)
-    # 5 pixels wide using a loop
-   
- 
+
  
     # Draw a rectangle
     pygame.draw.rect(screen, BLUE, [350, 205, 305, 400])
@@ -67,9 +62,7 @@ while not done:
     pygame.draw.polygon(screen, BLUE, [[500, 100], [350, 200], [650, 200]])
     pygame.draw.polygon(screen, BLUE, [[350, 400], [350, 300], [150, 400]])
     pygame.draw.polygon(screen, BLUE, [[654, 400], [654, 300], [850, 400]])
-    # Select the font to use, size, bold, italics
-    font = pygame.font.SysFont('Calibri', 25, True, False)
- 
+
  
     # Put the image of the text on the screen at 250x250
     screen.blit(text, [250, 250])
