@@ -80,7 +80,6 @@ list_total=0
 for i in range(len(my_list)):
     list_total+=my_list[i]
 print(list_total)
-avg=0
 avg=list_total/len(my_list)
 print("The avarage is:",avg)
 
