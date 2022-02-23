@@ -96,6 +96,7 @@ while done == False:
     if milestraveled > 200:
         print("you did it, you left the desert")
         print("YOU WON!")
+        done=True
     if h==20:
         print("you found a oasis")
         thirst=0
