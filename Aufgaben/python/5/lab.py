@@ -58,8 +58,7 @@ while not done:
     pygame.draw.rect(screen, BLUE, [500, 605, 75, 100])
     pygame.draw.rect(screen, BLUE, [200, 305, 50, 150])
     pygame.draw.rect(screen, BLUE, [750, 305, 50, 150])
-    # Draw an ellipse, using a rectangle as the outside boundaries
-    pygame.draw.ellipse(screen, BLACK, [20, 20, 250, 50], 2)
+  
     
  
     pygame.draw.circle(screen, YELLOW, [500, 330], 50)
