@@ -12,7 +12,7 @@ g=0
 h=0
 f=0
 d=0
-Milestraveled=0
+milestraveled=0
 thirst=0
 cameltiredness=0
 natives=20
@@ -36,7 +36,7 @@ while done == False:
     if a==Q:
         done=True
     if a==E:
-        print("Miles traveled:",Milestraveled,"\n","your thirst:",thirst,"\n","your camel tiredness is:",cameltiredness,"\n","natives are ",natives,"miles away","\n","drinks in the canteen:",drinksinthecanteen)
+        print("Miles traveled:",milestraveled,"\n","your thirst:",thirst,"\n","your camel tiredness is:",cameltiredness,"\n","natives are ",natives,"miles away","\n","drinks in the canteen:",drinksinthecanteen)
     if a==D:
         cameltiredness=0
         print("Camel is happy")
@@ -46,8 +46,8 @@ while done == False:
     elif a==C:
         c=(random.randint(10,20))
         print("you moved",c,"miles")
-        Milestraveled=Milestraveled+c
-        print("combined you moved",Milestraveled,"miles")
+        milestraveled=milestraveled+c
+        print("combined you moved",milestraveled,"miles")
         thirst=thirst+1
         print("you got more thirsty",thirst)
         d=(random.randint(1,3))
@@ -60,8 +60,8 @@ while done == False:
     if a==B:
         f=(random.randint(5,12))
         print("you moved",f,"miles")
-        Milestraveled=Milestraveled+f
-        print("combined you moved",Milestraveled,"miles")
+        milestraveled=milestraveled+f
+        print("combined you moved",milestraveled,"miles")
         thirst=thirst+1
         print("you got more thirsty",thirst)
         cameltiredness=cameltiredness+1
@@ -93,7 +93,7 @@ while done == False:
     if natives ==0 or natives <0:
         print("they have you, hopefully they are merciful")
         done=True
-    if Milestraveled > 200:
+    if milestraveled > 200:
         print("you did it, you left the desert")
         print("YOU WON!")
     if h==20:
